@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Info } from "lucide-react";
 
+const TALLY_FORM_ID = "9qDAZp";
+
 const plans = [
   {
     name: "Free",
@@ -57,11 +59,6 @@ const plans = [
 ];
 
 export function PricingSection() {
-  const scrollToSignup = () => {
-    const el = document.getElementById("signup");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       id="pricing"
@@ -129,7 +126,13 @@ export function PricingSection() {
                 variant={plan.popular ? "default" : "outline"}
                 className="w-full"
                 disabled={plan.ctaDisabled}
-                onClick={plan.ctaDisabled ? undefined : scrollToSignup}
+                {...(plan.ctaDisabled
+                  ? {}
+                  : {
+                      "data-tally-open": TALLY_FORM_ID,
+                      "data-tally-layout": "modal",
+                      "data-tally-auto-close": "3000",
+                    })}
                 data-testid={`button-pricing-${plan.plan}`}
               >
                 {plan.cta}

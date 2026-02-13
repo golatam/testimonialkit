@@ -1,13 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowDown, Star, Zap, Shield } from "lucide-react";
+import { ArrowRight, Star, Zap, Shield } from "lucide-react";
+
+const TALLY_FORM_ID = "9qDAZp";
 
 export function HeroSection() {
-  const scrollToSignup = () => {
-    const el = document.getElementById("signup");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative overflow-hidden" data-testid="hero-section">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/3 dark:from-primary/10 dark:via-transparent dark:to-primary/5" />
@@ -33,7 +30,12 @@ export function HeroSection() {
           >
             Pricing
           </Button>
-          <Button onClick={scrollToSignup} data-testid="button-hero-cta-nav">
+          <Button
+            data-tally-open={TALLY_FORM_ID}
+            data-tally-layout="modal"
+            data-tally-auto-close="3000"
+            data-testid="button-hero-cta-nav"
+          >
             Get Early Access
           </Button>
         </div>
@@ -67,11 +69,13 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center gap-3 mb-12">
             <Button
               size="lg"
-              onClick={scrollToSignup}
+              data-tally-open={TALLY_FORM_ID}
+              data-tally-layout="modal"
+              data-tally-auto-close="3000"
               data-testid="button-hero-cta"
             >
               Get Early Access
-              <ArrowDown className="w-4 h-4 ml-2" />
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <p className="text-sm text-muted-foreground flex items-center gap-1.5">
               <Shield className="w-3.5 h-3.5" />

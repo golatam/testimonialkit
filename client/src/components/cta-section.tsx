@@ -1,5 +1,7 @@
-import { SignupForm } from "@/components/signup-form";
-import { Star, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, Rocket, ArrowRight } from "lucide-react";
+
+const TALLY_FORM_ID = "9qDAZp";
 
 export function CtaSection() {
   return (
@@ -34,7 +36,16 @@ export function CtaSection() {
             </p>
 
             <div className="flex justify-center">
-              <SignupForm plan="starter" />
+              <Button
+                size="lg"
+                data-tally-open={TALLY_FORM_ID}
+                data-tally-layout="modal"
+                data-tally-auto-close="3000"
+                data-testid="button-cta-signup"
+              >
+                Get Early Access
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </div>
 
             <p className="text-xs text-muted-foreground mt-4">

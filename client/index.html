@@ -8,6 +8,20 @@
       gtag('js', new Date());
       gtag('config', 'AW-17108387879');
     </script>
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17108387879/2nrMCNymms4aEKeQ9d0_',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>TestimonialKit - Collect Testimonials. Simple & Cheap.</title>

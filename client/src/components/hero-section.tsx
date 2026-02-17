@@ -34,6 +34,7 @@ export function HeroSection() {
             data-tally-open={TALLY_FORM_ID}
             data-tally-layout="modal"
             data-tally-auto-close="3000"
+            onClick={() => (window as any).gtag_report_conversion?.()}
             data-testid="button-hero-cta-nav"
           >
             Get Early Access
@@ -72,6 +73,7 @@ export function HeroSection() {
               data-tally-open={TALLY_FORM_ID}
               data-tally-layout="modal"
               data-tally-auto-close="3000"
+              onClick={() => (window as any).gtag_report_conversion?.()}
               data-testid="button-hero-cta"
             >
               Get Early Access

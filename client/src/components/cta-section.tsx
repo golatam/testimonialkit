@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Star, Rocket, ArrowRight } from "lucide-react";
-
-const TALLY_FORM_ID = "9qDAZp";
+import { Star, Rocket } from "lucide-react";
+import { Link } from "wouter";
+import { SignupForm } from "@/components/signup-form";
 
 export function CtaSection() {
   return (
@@ -35,18 +34,8 @@ export function CtaSection() {
               we raise it.
             </p>
 
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                data-tally-open={TALLY_FORM_ID}
-                data-tally-layout="modal"
-                data-tally-auto-close="3000"
-                onClick={() => (window as any).gtag_report_conversion?.()}
-                data-testid="button-cta-signup"
-              >
-                Get Early Access
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+            <div className="flex justify-center mb-4">
+              <SignupForm plan="starter" />
             </div>
 
             <p className="text-xs text-muted-foreground mt-4">
@@ -58,7 +47,7 @@ export function CtaSection() {
 
       <footer className="py-10 border-t" data-testid="footer">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-md bg-primary flex items-center justify-center">
                 <Star className="w-3.5 h-3.5 text-primary-foreground" />
@@ -68,9 +57,20 @@ export function CtaSection() {
               </span>
             </div>
 
-            <p className="text-sm text-muted-foreground text-center" data-testid="text-footer-tagline">
-              Made by indie hackers, for indie hackers.
-            </p>
+            <nav className="flex items-center gap-4 text-sm text-muted-foreground">
+              <Link href="/privacy" className="hover:text-foreground transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="hover:text-foreground transition-colors">
+                Terms of Service
+              </Link>
+              <a
+                href="mailto:hello@testimonialkit.online"
+                className="hover:text-foreground transition-colors"
+              >
+                Contact
+              </a>
+            </nav>
 
             <p className="text-xs text-muted-foreground" data-testid="text-footer-copyright">
               &copy; 2026 TestimonialKit. All rights reserved.

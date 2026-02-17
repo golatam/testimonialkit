@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star, Zap, Shield } from "lucide-react";
-
-const TALLY_FORM_ID = "9qDAZp";
+import { SignupDialog } from "@/components/signup-dialog";
 
 export function HeroSection() {
   return (
@@ -30,15 +29,11 @@ export function HeroSection() {
           >
             Pricing
           </Button>
-          <Button
-            data-tally-open={TALLY_FORM_ID}
-            data-tally-layout="modal"
-            data-tally-auto-close="3000"
-            onClick={() => (window as any).gtag_report_conversion?.()}
-            data-testid="button-hero-cta-nav"
-          >
-            Get Early Access
-          </Button>
+          <SignupDialog>
+            <button data-testid="button-hero-cta-nav">
+              Get Early Access
+            </button>
+          </SignupDialog>
         </div>
       </nav>
 
@@ -68,17 +63,12 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 mb-12">
-            <Button
-              size="lg"
-              data-tally-open={TALLY_FORM_ID}
-              data-tally-layout="modal"
-              data-tally-auto-close="3000"
-              onClick={() => (window as any).gtag_report_conversion?.()}
-              data-testid="button-hero-cta"
-            >
-              Get Early Access
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            <SignupDialog>
+              <button className="inline-flex items-center justify-center" data-testid="button-hero-cta">
+                Get Early Access
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
+            </SignupDialog>
             <p className="text-sm text-muted-foreground flex items-center gap-1.5">
               <Shield className="w-3.5 h-3.5" />
               Free for first 50 signups

@@ -9,15 +9,9 @@
       gtag('config', 'AW-17108387879');
     </script>
     <script>
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
+      function gtag_report_conversion() {
         gtag('event', 'conversion', {
-            'send_to': 'AW-17108387879/2nrMCNymms4aEKeQ9d0_',
-            'event_callback': callback
+            'send_to': 'AW-17108387879/2nrMCNymms4aEKeQ9d0_'
         });
         return false;
       }
@@ -38,7 +32,27 @@
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="max-width:800px;margin:0 auto;padding:40px 20px;font-family:Inter,sans-serif;color:#1a1a1a">
+        <h1>TestimonialKit — Collect Testimonials. Simple &amp; Cheap.</h1>
+        <p>Same features as Senja. 3x cheaper. Free to start. Built for bootstrappers.</p>
+        <h2>Why TestimonialKit?</h2>
+        <ul>
+          <li>Manual collection takes hours — we automate it</li>
+          <li>Existing tools cost $19-60/month — we start free</li>
+          <li>Beautiful widgets without hiring a developer</li>
+        </ul>
+        <h2>Pricing</h2>
+        <ul>
+          <li><strong>Free</strong> — $0/month: 15 text testimonials, 1 form, 1 widget</li>
+          <li><strong>Starter</strong> — $7/month: Unlimited testimonials, 3 forms, Wall of Love widget</li>
+          <li><strong>Pro</strong> — $19/month: Everything in Starter plus video testimonials, import reviews, custom domain</li>
+        </ul>
+        <p>Launching March 2026. Get early access — free for first 50 signups.</p>
+        <p>Contact: <a href="mailto:hello@testimonialkit.online">hello@testimonialkit.online</a></p>
+        <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
-    <script async src="https://tally.so/widgets/embed.js"></script>
   </body>
 </html>

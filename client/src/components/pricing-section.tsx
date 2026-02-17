@@ -2,8 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Info } from "lucide-react";
-
-const TALLY_FORM_ID = "9qDAZp";
+import { SignupDialog } from "@/components/signup-dialog";
 
 const plans = [
   {
@@ -122,22 +121,29 @@ export function PricingSection() {
                 ))}
               </ul>
 
-              <Button
-                variant={plan.popular ? "default" : "outline"}
-                className="w-full"
-                disabled={plan.ctaDisabled}
-                {...(plan.ctaDisabled
-                  ? {}
-                  : {
-                      "data-tally-open": TALLY_FORM_ID,
-                      "data-tally-layout": "modal",
-                      "data-tally-auto-close": "3000",
-                      onClick: () => (window as any).gtag_report_conversion?.(),
-                    })}
-                data-testid={`button-pricing-${plan.plan}`}
-              >
-                {plan.cta}
-              </Button>
+              {plan.ctaDisabled ? (
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  disabled
+                  data-testid={`button-pricing-${plan.plan}`}
+                >
+                  {plan.cta}
+                </Button>
+              ) : (
+                <SignupDialog plan={plan.plan}>
+                  <button
+                    className={`inline-flex items-center justify-center w-full rounded-md text-sm font-medium h-10 px-4 py-2 ${
+                      plan.popular
+                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                        : "border border-input bg-background hover:bg-accent hover:text-accent-foreground"
+                    }`}
+                    data-testid={`button-pricing-${plan.plan}`}
+                  >
+                    {plan.cta}
+                  </button>
+                </SignupDialog>
+              )}
             </Card>
           ))}
         </div>

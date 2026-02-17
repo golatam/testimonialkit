@@ -2,7 +2,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Info } from "lucide-react";
-import { SignupDialog } from "@/components/signup-dialog";
+
+const TALLY_URL = "https://tally.so/r/9qDAZp";
 
 const plans = [
   {
@@ -121,29 +122,26 @@ export function PricingSection() {
                 ))}
               </ul>
 
-              {plan.ctaDisabled ? (
-                <Button
-                  variant="outline"
-                  className="w-full"
-                  disabled
-                  data-testid={`button-pricing-${plan.plan}`}
-                >
-                  {plan.cta}
-                </Button>
-              ) : (
-                <SignupDialog plan={plan.plan}>
-                  <button
-                    className={`inline-flex items-center justify-center w-full rounded-md text-sm font-medium h-10 px-4 py-2 ${
-                      plan.popular
-                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                        : "border border-input bg-background hover:bg-accent hover:text-accent-foreground"
-                    }`}
-                    data-testid={`button-pricing-${plan.plan}`}
-                  >
+              <Button
+                variant={plan.popular ? "default" : "outline"}
+                className="w-full"
+                disabled={plan.ctaDisabled}
+                {...(plan.ctaDisabled
+                  ? {}
+                  : {
+                      asChild: true,
+                      onClick: () => (window as any).gtag_report_conversion?.(),
+                    })}
+                data-testid={`button-pricing-${plan.plan}`}
+              >
+                {plan.ctaDisabled ? (
+                  plan.cta
+                ) : (
+                  <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
                     {plan.cta}
-                  </button>
-                </SignupDialog>
-              )}
+                  </a>
+                )}
+              </Button>
             </Card>
           ))}
         </div>

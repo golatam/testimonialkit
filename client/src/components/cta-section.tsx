@@ -1,6 +1,8 @@
-import { Star, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, Rocket, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import { SignupForm } from "@/components/signup-form";
+
+const TALLY_URL = "https://tally.so/r/9qDAZp";
 
 export function CtaSection() {
   return (
@@ -34,8 +36,18 @@ export function CtaSection() {
               we raise it.
             </p>
 
-            <div className="flex justify-center mb-4">
-              <SignupForm plan="starter" />
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                asChild
+                onClick={() => (window as any).gtag_report_conversion?.()}
+                data-testid="button-cta-signup"
+              >
+                <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
+                  Get Early Access
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </Button>
             </div>
 
             <p className="text-xs text-muted-foreground mt-4">

@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star, Zap, Shield } from "lucide-react";
-import { SignupDialog } from "@/components/signup-dialog";
+
+const TALLY_URL = "https://tally.so/r/9qDAZp";
 
 export function HeroSection() {
   return (
@@ -29,11 +30,15 @@ export function HeroSection() {
           >
             Pricing
           </Button>
-          <SignupDialog>
-            <button data-testid="button-hero-cta-nav">
+          <Button
+            asChild
+            onClick={() => (window as any).gtag_report_conversion?.()}
+            data-testid="button-hero-cta-nav"
+          >
+            <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
               Get Early Access
-            </button>
-          </SignupDialog>
+            </a>
+          </Button>
         </div>
       </nav>
 
@@ -63,12 +68,17 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 mb-12">
-            <SignupDialog>
-              <button className="inline-flex items-center justify-center" data-testid="button-hero-cta">
+            <Button
+              size="lg"
+              asChild
+              onClick={() => (window as any).gtag_report_conversion?.()}
+              data-testid="button-hero-cta"
+            >
+              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
                 Get Early Access
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
-            </SignupDialog>
+              </a>
+            </Button>
             <p className="text-sm text-muted-foreground flex items-center gap-1.5">
               <Shield className="w-3.5 h-3.5" />
               Free for first 50 signups

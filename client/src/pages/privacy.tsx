@@ -53,8 +53,16 @@ export default function Privacy() {
 
           <section>
             <h2 className="text-lg font-semibold mb-2">4. Third-Party Services</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              We use Google Analytics and Google Ads conversion tracking to understand how visitors interact with our site. Google may collect and process data according to their own privacy policy. We do not sell your personal data to any third parties.
+            <p className="text-muted-foreground leading-relaxed mb-2">
+              We use the following third-party services:
+            </p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
+              <li><strong className="text-foreground">Google Analytics</strong> — to understand how visitors interact with our site (page views, traffic sources)</li>
+              <li><strong className="text-foreground">Google Ads conversion tracking (gtag.js)</strong> — to measure the effectiveness of our advertising campaigns. This places cookies to track conversions when you interact with our ads.</li>
+              <li><strong className="text-foreground">Tally.so</strong> — to host our waitlist signup form. When you submit our signup form, your data is processed by Tally according to their privacy policy.</li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mt-2">
+              Google may collect and process data according to their own privacy policy. We do not sell your personal data to any third parties.
             </p>
           </section>
 

@@ -36,7 +36,7 @@ export function HeroSection() {
             data-testid="button-hero-cta-nav"
           >
             <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
-              Get Early Access
+              Join the Waitlist
             </a>
           </Button>
         </div>
@@ -62,9 +62,9 @@ export function HeroSection() {
             className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-8"
             data-testid="text-subheadline"
           >
-            Same features as Senja. 3x cheaper. Free to start.
+            An affordable alternative to Senja & Testimonial.to.
             <br className="hidden sm:block" />
-            Built for bootstrappers.
+            Free to start. Built for bootstrappers.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 mb-12">
@@ -75,7 +75,7 @@ export function HeroSection() {
               data-testid="button-hero-cta"
             >
               <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
-                Get Early Access
+                Join the Waitlist
                 <ArrowRight className="w-4 h-4 ml-2" />
               </a>
             </Button>
@@ -114,17 +114,17 @@ export function HeroSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
                   {
-                    name: "Sarah K.",
-                    role: "Founder, LaunchPad",
-                    text: "This tool saved me hours of manual work. Beautiful widgets that just work.",
+                    name: "Jane D.",
+                    role: "SaaS Founder",
+                    text: "Your product changed how we collect feedback. Highly recommend!",
                   },
                   {
-                    name: "Mike R.",
-                    role: "Indie Hacker",
-                    text: "Finally an affordable testimonial tool. No more Senja bills eating my margins.",
+                    name: "Alex M.",
+                    role: "Agency Owner",
+                    text: "Beautiful widgets, easy setup. Exactly what we needed.",
                   },
                 ].map((testimonial, i) => (
-                  <div key={i} className="rounded-md border bg-background p-4" data-testid={`card-testimonial-${i}`}>
+                  <div key={i} className="rounded-md border bg-background p-4 opacity-80" data-testid={`card-testimonial-${i}`}>
                     <div className="flex gap-0.5 mb-2">
                       {[0, 1, 2, 3, 4].map((j) => (
                         <Star
@@ -133,7 +133,7 @@ export function HeroSection() {
                         />
                       ))}
                     </div>
-                    <p className="text-sm mb-3 leading-relaxed">"{testimonial.text}"</p>
+                    <p className="text-sm mb-3 leading-relaxed italic text-muted-foreground">"{testimonial.text}"</p>
                     <div className="flex items-center gap-2">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <span className="text-[10px] font-medium text-primary">
@@ -150,7 +150,7 @@ export function HeroSection() {
               </div>
 
               <p className="text-[10px] text-muted-foreground text-center mt-3 opacity-60">
-                Preview of Wall of Love widget
+                Widget preview — example content only
               </p>
             </div>
           </div>

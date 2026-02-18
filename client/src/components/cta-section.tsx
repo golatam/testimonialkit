@@ -29,11 +29,11 @@ export function CtaSection() {
               className="text-lg text-muted-foreground mb-3 leading-relaxed"
               data-testid="text-cta-description"
             >
-              Get early access. Free for first 50 signups.
+              Join our waitlist. Free for first 50 signups.
             </p>
             <p className="text-sm text-muted-foreground mb-8" data-testid="text-cta-offer">
-              Lock in <span className="font-semibold text-foreground">$5/mo lifetime price</span> before
-              we raise it.
+              Early supporters get <span className="font-semibold text-foreground">special lifetime pricing</span> when
+              we launch.
             </p>
 
             <div className="flex justify-center">
@@ -44,7 +44,7 @@ export function CtaSection() {
                 data-testid="button-cta-signup"
               >
                 <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
-                  Get Early Access
+                  Join the Waitlist
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
@@ -84,9 +84,17 @@ export function CtaSection() {
               </a>
             </nav>
 
-            <p className="text-xs text-muted-foreground" data-testid="text-footer-copyright">
-              &copy; 2026 TestimonialKit. All rights reserved.
-            </p>
+            <div className="text-right">
+              <p className="text-xs text-muted-foreground" data-testid="text-footer-copyright">
+                &copy; 2026 TestimonialKit. All rights reserved.
+              </p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Built by Kirill — indie developer from{" "}
+                <a href="mailto:hello@testimonialkit.online" className="hover:text-foreground transition-colors">
+                  hello@testimonialkit.online
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </footer>

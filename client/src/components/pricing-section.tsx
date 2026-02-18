@@ -34,7 +34,7 @@ const plans = [
       "Social images (Twitter/LinkedIn)",
       "Remove branding",
     ],
-    cta: "Get Early Access",
+    cta: "Join the Waitlist",
     ctaDisabled: false,
     popular: true,
     plan: "starter" as const,
@@ -51,7 +51,7 @@ const plans = [
       "Custom domain",
       "Priority support",
     ],
-    cta: "Get Early Access",
+    cta: "Join the Waitlist",
     ctaDisabled: false,
     popular: false,
     plan: "pro" as const,
@@ -157,7 +157,7 @@ export function PricingSection() {
               Senja Starter = $19/mo, Pro = $39/mo.{" "}
               Testimonial.to Basic = $25/mo, Premium = $60/mo.{" "}
               <span className="font-medium text-foreground">
-                We're 2-3x cheaper. Same features.
+                We're building a more affordable alternative.
               </span>
             </p>
           </div>

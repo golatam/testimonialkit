@@ -5,8 +5,28 @@ import viteConfig from "../vite.config";
 import fs from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
+import { resolveProductMeta } from "@shared/products";
 
 const viteLogger = createLogger();
+
+function injectProductMeta(html: string, hostname: string): string {
+  const meta = resolveProductMeta(hostname);
+
+  return html
+    .replaceAll("__META_TITLE__", meta.metaTitle)
+    .replaceAll("__META_DESCRIPTION__", meta.metaDescription)
+    .replaceAll("__OG_TITLE__", meta.ogTitle)
+    .replaceAll("__OG_DESCRIPTION__", meta.ogDescription)
+    .replaceAll("__GTAG_ID__", meta.gtagId)
+    .replaceAll("__GTAG_CONVERSION__", meta.gtagConversion)
+    .replaceAll("__BRAND_NAME__", meta.brandName)
+    .replaceAll("__CONTACT_EMAIL__", meta.contactEmail)
+    .replaceAll("__NOSCRIPT_HEADLINE__", meta.noscriptHeadline)
+    .replaceAll("__NOSCRIPT_DESCRIPTION__", meta.noscriptDescription)
+    .replaceAll("__NOSCRIPT_PROBLEMS__", meta.noscriptProblems.map(p => `<li>${p}</li>`).join(""))
+    .replaceAll("__NOSCRIPT_PRICING__", meta.noscriptPricing.map(p => `<li><strong>${p.split(" — ")[0]}</strong> — ${p.split(" — ").slice(1).join(" — ")}</li>`).join(""))
+    .replaceAll("__NOSCRIPT_CTA__", meta.noscriptCta);
+}
 
 export async function setupVite(server: Server, app: Express) {
   const serverOptions = {
@@ -48,6 +68,10 @@ export async function setupVite(server: Server, app: Express) {
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`,
       );
+
+      // Inject product meta based on hostname
+      template = injectProductMeta(template, req.hostname);
+
       const page = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {

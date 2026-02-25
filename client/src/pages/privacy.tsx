@@ -1,8 +1,11 @@
 import { Link } from "wouter";
-import { ArrowLeft, Star } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useProduct } from "@/config/ProductContext";
 
 export default function Privacy() {
+  const p = useProduct();
+
   return (
     <div className="min-h-screen bg-background">
       <nav className="flex items-center gap-4 max-w-[800px] mx-auto px-6 py-5">
@@ -14,9 +17,9 @@ export default function Privacy() {
         </Link>
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-md bg-primary flex items-center justify-center">
-            <Star className="w-3.5 h-3.5 text-primary-foreground" />
+            <p.logoIcon className="w-3.5 h-3.5 text-primary-foreground" />
           </div>
-          <span className="text-sm font-semibold">TestimonialKit</span>
+          <span className="text-sm font-semibold">{p.brandName}</span>
         </div>
       </nav>
 
@@ -28,7 +31,7 @@ export default function Privacy() {
           <section>
             <h2 className="text-lg font-semibold mb-2">1. Introduction</h2>
             <p className="text-muted-foreground leading-relaxed">
-              TestimonialKit ("we", "our", "us") operates the website testimonialkit.online. This Privacy Policy explains how we collect, use, and protect your personal information when you use our service.
+              {p.brandName} ("we", "our", "us") operates the website {p.domain}. This Privacy Policy explains how we collect, use, and protect your personal information when you use our service.
             </p>
           </section>
 
@@ -95,8 +98,8 @@ export default function Privacy() {
             <h2 className="text-lg font-semibold mb-2">8. Contact</h2>
             <p className="text-muted-foreground leading-relaxed">
               If you have any questions about this Privacy Policy, please contact us at{" "}
-              <a href="mailto:hello@testimonialkit.online" className="text-primary hover:underline">
-                hello@testimonialkit.online
+              <a href={`mailto:${p.contactEmail}`} className="text-primary hover:underline">
+                {p.contactEmail}
               </a>.
             </p>
           </section>

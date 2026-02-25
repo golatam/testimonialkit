@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Star, Zap, Shield } from "lucide-react";
-
-const TALLY_URL = "https://tally.so/r/9qDAZp";
+import { ArrowRight, Zap, Shield } from "lucide-react";
+import { useProduct } from "@/config/ProductContext";
+import { reportConversion } from "@/lib/gtag";
 
 export function HeroSection() {
+  const p = useProduct();
+  const HeroDemo = p.heroDemo;
+
   return (
     <section className="relative overflow-hidden" data-testid="hero-section">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/3 dark:from-primary/10 dark:via-transparent dark:to-primary/5" />
@@ -15,9 +18,9 @@ export function HeroSection() {
       <nav className="relative z-10 flex items-center justify-between gap-4 flex-wrap max-w-[1200px] mx-auto px-6 py-5">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-            <Star className="w-4 h-4 text-primary-foreground" />
+            <p.logoIcon className="w-4 h-4 text-primary-foreground" />
           </div>
-          <span className="text-lg font-semibold tracking-tight" data-testid="text-brand">TestimonialKit</span>
+          <span className="text-lg font-semibold tracking-tight" data-testid="text-brand">{p.brandName}</span>
         </div>
         <div className="flex items-center gap-3">
           <Button
@@ -32,11 +35,11 @@ export function HeroSection() {
           </Button>
           <Button
             asChild
-            onClick={() => (window as any).gtag_report_conversion?.()}
+            onClick={reportConversion}
             data-testid="button-hero-cta-nav"
           >
-            <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
-              Join the Waitlist
+            <a href={p.tallyUrl} target="_blank" rel="noopener noreferrer">
+              {p.heroCta}
             </a>
           </Button>
         </div>
@@ -46,114 +49,49 @@ export function HeroSection() {
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <Badge variant="secondary" className="mb-6" data-testid="badge-launch">
             <Zap className="w-3 h-3 mr-1.5" />
-            Launching March 2026
+            {p.heroBadge}
           </Badge>
 
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6"
             data-testid="text-headline"
           >
-            Collect Testimonials.
+            {p.heroHeadline}
             <br />
-            <span className="text-primary">Simple & Cheap.</span>
+            <span className="text-primary">{p.heroHeadlineAccent}</span>
           </h1>
 
           <p
             className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-8"
             data-testid="text-subheadline"
           >
-            An affordable alternative to Senja & Testimonial.to.
-            <br className="hidden sm:block" />
-            Free to start. Built for bootstrappers.
+            {p.heroSubheadline.split("\n").map((line, i) => (
+              <span key={i}>
+                {i > 0 && <br className="hidden sm:block" />}
+                {line}
+              </span>
+            ))}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 mb-12">
             <Button
               size="lg"
               asChild
-              onClick={() => (window as any).gtag_report_conversion?.()}
+              onClick={reportConversion}
               data-testid="button-hero-cta"
             >
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
-                Join the Waitlist
+              <a href={p.tallyUrl} target="_blank" rel="noopener noreferrer">
+                {p.heroCta}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </a>
             </Button>
             <p className="text-sm text-muted-foreground flex items-center gap-1.5">
               <Shield className="w-3.5 h-3.5" />
-              Free for first 50 signups
+              {p.heroCtaSub}
             </p>
           </div>
 
-          <div className="w-full max-w-2xl" data-testid="widget-preview">
-            <div className="rounded-md border bg-card p-6 md:p-8">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex -space-x-2">
-                  {[0, 1, 2].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full border-2 border-card bg-muted flex items-center justify-center"
-                    >
-                      <span className="text-xs font-medium text-muted-foreground">
-                        {["JD", "AK", "ML"][i]}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex gap-0.5">
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <Star
-                      key={i}
-                      className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <span className="text-xs text-muted-foreground ml-1">Wall of Love</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {[
-                  {
-                    name: "Jane D.",
-                    role: "SaaS Founder",
-                    text: "Your product changed how we collect feedback. Highly recommend!",
-                  },
-                  {
-                    name: "Alex M.",
-                    role: "Agency Owner",
-                    text: "Beautiful widgets, easy setup. Exactly what we needed.",
-                  },
-                ].map((testimonial, i) => (
-                  <div key={i} className="rounded-md border bg-background p-4 opacity-80" data-testid={`card-testimonial-${i}`}>
-                    <div className="flex gap-0.5 mb-2">
-                      {[0, 1, 2, 3, 4].map((j) => (
-                        <Star
-                          key={j}
-                          className="w-3 h-3 fill-yellow-400 text-yellow-400"
-                        />
-                      ))}
-                    </div>
-                    <p className="text-sm mb-3 leading-relaxed italic text-muted-foreground">"{testimonial.text}"</p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-[10px] font-medium text-primary">
-                          {testimonial.name[0]}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-xs font-medium">{testimonial.name}</p>
-                        <p className="text-[10px] text-muted-foreground">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <p className="text-[10px] text-muted-foreground text-center mt-3 opacity-60">
-                Widget preview — example content only
-              </p>
-            </div>
-          </div>
+          <HeroDemo />
         </div>
       </div>
     </section>

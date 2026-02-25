@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17108387879"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=__GTAG_ID__"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-17108387879');
+      gtag('config', '__GTAG_ID__');
     </script>
     <script>
       function gtag_report_conversion() {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17108387879/2nrMCNymms4aEKeQ9d0_'
-        });
+        var conversionId = '__GTAG_CONVERSION__';
+        if (conversionId && conversionId !== '__' + 'GTAG_CONVERSION__') {
+          gtag('event', 'conversion', { 'send_to': conversionId });
+        }
         return false;
       }
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>TestimonialKit - Collect Testimonials. Simple & Cheap.</title>
-    <meta name="description" content="Collect and display beautiful testimonials for your website. An affordable alternative to Senja & Testimonial.to. Free plan available. Built for bootstrappers." />
-    <meta property="og:title" content="TestimonialKit - Collect Testimonials. Simple & Cheap." />
-    <meta property="og:description" content="An affordable alternative to Senja & Testimonial.to. Free to start. Built for indie hackers." />
+    <title>__META_TITLE__</title>
+    <meta name="description" content="__META_DESCRIPTION__" />
+    <meta property="og:title" content="__OG_TITLE__" />
+    <meta property="og:description" content="__OG_DESCRIPTION__" />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
@@ -34,22 +35,14 @@
     <div id="root"></div>
     <noscript>
       <div style="max-width:800px;margin:0 auto;padding:40px 20px;font-family:Inter,sans-serif;color:#1a1a1a">
-        <h1>TestimonialKit — Collect Testimonials. Simple &amp; Cheap.</h1>
-        <p>An affordable alternative to Senja &amp; Testimonial.to. Free to start. Built for bootstrappers.</p>
-        <h2>Why TestimonialKit?</h2>
-        <ul>
-          <li>Manual collection takes hours — we automate it</li>
-          <li>Existing tools cost $19-60/month — we start free</li>
-          <li>Beautiful widgets without hiring a developer</li>
-        </ul>
+        <h1>__NOSCRIPT_HEADLINE__</h1>
+        <p>__NOSCRIPT_DESCRIPTION__</p>
+        <h2>Why __BRAND_NAME__?</h2>
+        <ul>__NOSCRIPT_PROBLEMS__</ul>
         <h2>Pricing</h2>
-        <ul>
-          <li><strong>Free</strong> — $0/month: 15 text testimonials, 1 form, 1 widget</li>
-          <li><strong>Starter</strong> — $7/month: Unlimited testimonials, 3 forms, Wall of Love widget</li>
-          <li><strong>Pro</strong> — $19/month: Everything in Starter plus video testimonials, import reviews, custom domain</li>
-        </ul>
-        <p>Launching March 2026. Join our waitlist — free for first 50 signups.</p>
-        <p>Contact: <a href="mailto:hello@testimonialkit.online">hello@testimonialkit.online</a></p>
+        <ul>__NOSCRIPT_PRICING__</ul>
+        <p>__NOSCRIPT_CTA__</p>
+        <p>Contact: <a href="mailto:__CONTACT_EMAIL__">__CONTACT_EMAIL__</a></p>
         <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
       </div>
     </noscript>

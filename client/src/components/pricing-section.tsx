@@ -2,63 +2,12 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Info } from "lucide-react";
-
-const TALLY_URL = "https://tally.so/r/9qDAZp";
-
-const plans = [
-  {
-    name: "Free",
-    price: "$0",
-    period: "/month",
-    description: "Get started with the basics",
-    features: [
-      "15 text testimonials",
-      "1 testimonial form",
-      "1 basic widget",
-      '"Powered by TK" branding',
-    ],
-    cta: "Coming March 2026",
-    ctaDisabled: true,
-    popular: false,
-    plan: "free" as const,
-  },
-  {
-    name: "Starter",
-    price: "$7",
-    period: "/month",
-    description: "Everything you need to grow",
-    features: [
-      "Unlimited text testimonials",
-      "3 collection forms",
-      "Wall of Love widget",
-      "Social images (Twitter/LinkedIn)",
-      "Remove branding",
-    ],
-    cta: "Join the Waitlist",
-    ctaDisabled: false,
-    popular: true,
-    plan: "starter" as const,
-  },
-  {
-    name: "Pro",
-    price: "$19",
-    period: "/month",
-    description: "For power users",
-    features: [
-      "Everything in Starter, plus:",
-      "5-10 video testimonials",
-      "Import from Google/G2 reviews",
-      "Custom domain",
-      "Priority support",
-    ],
-    cta: "Join the Waitlist",
-    ctaDisabled: false,
-    popular: false,
-    plan: "pro" as const,
-  },
-];
+import { useProduct } from "@/config/ProductContext";
+import { reportConversion } from "@/lib/gtag";
 
 export function PricingSection() {
+  const p = useProduct();
+
   return (
     <section
       id="pricing"
@@ -71,15 +20,15 @@ export function PricingSection() {
             className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
             data-testid="text-pricing-title"
           >
-            Simple, Honest Pricing
+            {p.pricingTitle}
           </h2>
           <p className="text-muted-foreground text-lg max-w-lg mx-auto">
-            No hidden fees. No surprises. Cancel anytime.
+            {p.pricingSubtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
-          {plans.map((plan, i) => (
+          {p.plans.map((plan, i) => (
             <Card
               key={i}
               className={`relative p-6 md:p-8 flex flex-col ${
@@ -130,14 +79,14 @@ export function PricingSection() {
                   ? {}
                   : {
                       asChild: true,
-                      onClick: () => (window as any).gtag_report_conversion?.(),
+                      onClick: reportConversion,
                     })}
                 data-testid={`button-pricing-${plan.plan}`}
               >
                 {plan.ctaDisabled ? (
                   plan.cta
                 ) : (
-                  <a href={TALLY_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={p.tallyUrl} target="_blank" rel="noopener noreferrer">
                     {plan.cta}
                   </a>
                 )}
@@ -146,22 +95,23 @@ export function PricingSection() {
           ))}
         </div>
 
-        <Card
-          className="max-w-2xl mx-auto p-5 flex items-start gap-3"
-          data-testid="card-comparison"
-        >
-          <Info className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-          <div className="text-sm">
-            <p className="font-medium mb-1">For reference:</p>
-            <p className="text-muted-foreground leading-relaxed">
-              Senja Starter = $19/mo, Pro = $39/mo.{" "}
-              Testimonial.to Basic = $25/mo, Premium = $60/mo.{" "}
-              <span className="font-medium text-foreground">
-                We're building a more affordable alternative.
-              </span>
-            </p>
-          </div>
-        </Card>
+        {p.comparison && (
+          <Card
+            className="max-w-2xl mx-auto p-5 flex items-start gap-3"
+            data-testid="card-comparison"
+          >
+            <Info className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+            <div className="text-sm">
+              <p className="font-medium mb-1">For reference:</p>
+              <p className="text-muted-foreground leading-relaxed">
+                {p.comparison.text}{" "}
+                <span className="font-medium text-foreground">
+                  {p.comparison.highlight}
+                </span>
+              </p>
+            </div>
+          </Card>
+        )}
       </div>
     </section>
   );

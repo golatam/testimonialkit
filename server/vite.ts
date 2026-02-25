@@ -17,6 +17,7 @@ function injectProductMeta(html: string, hostname: string): string {
     .replaceAll("__META_DESCRIPTION__", meta.metaDescription)
     .replaceAll("__OG_TITLE__", meta.ogTitle)
     .replaceAll("__OG_DESCRIPTION__", meta.ogDescription)
+    .replaceAll("__GA_ID__", meta.gaId)
     .replaceAll("__GTAG_ID__", meta.gtagId)
     .replaceAll("__GTAG_CONVERSION__", meta.gtagConversion)
     .replaceAll("__BRAND_NAME__", meta.brandName)

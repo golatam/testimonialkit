@@ -5,6 +5,7 @@ export interface ProductMeta {
   metaDescription: string;
   ogTitle: string;
   ogDescription: string;
+  gaId: string;
   gtagId: string;
   gtagConversion: string;
   contactEmail: string;
@@ -23,6 +24,7 @@ const productsMeta: Record<string, ProductMeta> = {
     metaDescription: "Collect and display beautiful testimonials for your website. An affordable alternative to Senja & Testimonial.to. Free plan available. Built for bootstrappers.",
     ogTitle: "TestimonialKit - Collect Testimonials. Simple & Cheap.",
     ogDescription: "An affordable alternative to Senja & Testimonial.to. Free to start. Built for indie hackers.",
+    gaId: "G-JBN104RC8G",
     gtagId: "AW-17108387879",
     gtagConversion: "AW-17108387879/2nrMCNymms4aEKeQ9d0_",
     contactEmail: "hello@testimonialkit.online",
@@ -47,6 +49,7 @@ const productsMeta: Record<string, ProductMeta> = {
     metaDescription: "AI-powered review response generator. Paste any Google or Yelp review, get a professional reply instantly. Free 10 replies/month. Built for local businesses.",
     ogTitle: "ReviewReplyAI - AI Google Review Replies in 5 Seconds",
     ogDescription: "Stop wasting hours writing review responses. AI generates professional replies for Google, Yelp & TripAdvisor.",
+    gaId: "",
     gtagId: "",
     gtagConversion: "",
     contactEmail: "hello@reviewreplyai.online",
@@ -71,6 +74,7 @@ const productsMeta: Record<string, ProductMeta> = {
     metaDescription: "Generate legally compliant Privacy Policy, Terms of Service & Cookie Policy in minutes. GDPR & CCPA compliant. No lawyer needed. Free plan available.",
     ogTitle: "PolicyKit - Privacy Policy Generator in 2 Minutes",
     ogDescription: "Generate legally compliant Privacy Policy, Terms & Cookie Policy. GDPR & CCPA covered. No lawyer needed.",
+    gaId: "",
     gtagId: "",
     gtagConversion: "",
     contactEmail: "hello@policykit.online",
@@ -95,6 +99,7 @@ const productsMeta: Record<string, ProductMeta> = {
     metaDescription: "Create a beautiful waitlist page with viral referral mechanics. Users share, move up the queue, grow your list 3x faster. Free plan available.",
     ogTitle: "WaitlistKit - Viral Waitlist Builder with Referrals",
     ogDescription: "Turn your waitlist into a viral growth engine. Built-in referral system. No code needed.",
+    gaId: "",
     gtagId: "",
     gtagConversion: "",
     contactEmail: "hello@waitlistkit.online",
@@ -119,6 +124,7 @@ const productsMeta: Record<string, ProductMeta> = {
     metaDescription: "Collect feature requests, let users vote, prioritize your roadmap. Like Canny but 4x cheaper. Embeddable widget + voting board. Free plan available.",
     ogTitle: "FeedbackKit - Feature Request Board & Voting Widget",
     ogDescription: "Know exactly what your users want. Feature voting board + embeddable widget. Like Canny, but 4x cheaper.",
+    gaId: "",
     gtagId: "",
     gtagConversion: "",
     contactEmail: "hello@feedbackkit.online",
@@ -143,6 +149,7 @@ const productsMeta: Record<string, ProductMeta> = {
     metaDescription: "Beautiful changelog widget for your SaaS. Show users what's new right inside your app. Like Beamer but 60% cheaper. Free plan available.",
     ogTitle: "ChangelogKit - In-App Changelog Widget for SaaS",
     ogDescription: "Your users miss every update. Fix that with an in-app changelog widget. Like Beamer, but 60% cheaper.",
+    gaId: "",
     gtagId: "",
     gtagConversion: "",
     contactEmail: "hello@changelogkit.online",

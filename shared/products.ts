@@ -27,7 +27,7 @@ const productsMeta: Record<string, ProductMeta> = {
     gaId: "G-JBN104RC8G",
     gtagId: "AW-17108387879",
     gtagConversion: "AW-17108387879/2nrMCNymms4aEKeQ9d0_",
-    contactEmail: "hello@testimonialkit.online",
+    contactEmail: "hello@gettestimonialkit.online",
     noscriptHeadline: "TestimonialKit — Collect Testimonials. Simple & Cheap.",
     noscriptDescription: "An affordable alternative to Senja & Testimonial.to. Free to start. Built for bootstrappers.",
     noscriptProblems: [
@@ -170,8 +170,8 @@ const productsMeta: Record<string, ProductMeta> = {
 };
 
 const hostToSlug: Record<string, string> = {
-  "testimonialkit.online": "testimonialkit",
-  "www.testimonialkit.online": "testimonialkit",
+  "gettestimonialkit.online": "testimonialkit",
+  "www.gettestimonialkit.online": "testimonialkit",
   "reviewreplyai.online": "reviewreplyai",
   "www.reviewreplyai.online": "reviewreplyai",
   "policykit.online": "policykit",

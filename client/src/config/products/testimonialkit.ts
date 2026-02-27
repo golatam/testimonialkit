@@ -5,8 +5,8 @@ import type { ProductConfig } from "../types";
 export const testimonialkit: ProductConfig = {
   slug: "testimonialkit",
   brandName: "TestimonialKit",
-  domain: "testimonialkit.online",
-  contactEmail: "hello@testimonialkit.online",
+  domain: "gettestimonialkit.online",
+  contactEmail: "hello@gettestimonialkit.online",
   tallyUrl: "https://tally.so/r/9qDAZp",
   logoIcon: Star,
 

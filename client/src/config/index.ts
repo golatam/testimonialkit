@@ -16,8 +16,8 @@ const products: Record<string, ProductConfig> = {
 };
 
 const hostToSlug: Record<string, string> = {
-  "testimonialkit.online": "testimonialkit",
-  "www.testimonialkit.online": "testimonialkit",
+  "gettestimonialkit.online": "testimonialkit",
+  "www.gettestimonialkit.online": "testimonialkit",
   "reviewreplyai.online": "reviewreplyai",
   "www.reviewreplyai.online": "reviewreplyai",
   "policykit.online": "policykit",

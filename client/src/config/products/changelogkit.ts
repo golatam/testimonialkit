@@ -7,7 +7,7 @@ export const changelogkit: ProductConfig = {
   brandName: "ChangelogKit",
   domain: "changelogkit.online",
   contactEmail: "hello@changelogkit.online",
-  tallyUrl: "https://tally.so/r/changelogkit",
+  tallyUrl: "https://tally.so/r/Zjdl2e",
   logoIcon: Bell,
 
   metaTitle: "ChangelogKit - In-App Changelog Widget for SaaS",

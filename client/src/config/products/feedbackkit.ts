@@ -7,7 +7,7 @@ export const feedbackkit: ProductConfig = {
   brandName: "FeedbackKit",
   domain: "feedbackkit.online",
   contactEmail: "hello@feedbackkit.online",
-  tallyUrl: "https://tally.so/r/feedbackkit",
+  tallyUrl: "https://tally.so/r/jaBLlJ",
   logoIcon: MessageSquare,
 
   metaTitle: "FeedbackKit - Feature Request Board & Voting Widget",

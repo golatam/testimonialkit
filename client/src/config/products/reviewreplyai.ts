@@ -7,7 +7,7 @@ export const reviewreplyai: ProductConfig = {
   brandName: "ReviewReplyAI",
   domain: "reviewreplyai.online",
   contactEmail: "hello@reviewreplyai.online",
-  tallyUrl: "https://tally.so/r/reviewreplyai",
+  tallyUrl: "https://tally.so/r/PdAlzB",
   logoIcon: MessageSquareReply,
 
   metaTitle: "ReviewReplyAI - AI Google Review Replies in 5 Seconds",

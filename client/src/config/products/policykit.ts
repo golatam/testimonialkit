@@ -7,7 +7,7 @@ export const policykit: ProductConfig = {
   brandName: "PolicyKit",
   domain: "policykit.online",
   contactEmail: "hello@policykit.online",
-  tallyUrl: "https://tally.so/r/policykit",
+  tallyUrl: "https://tally.so/r/EkPLxB",
   logoIcon: FileText,
 
   metaTitle: "PolicyKit - Privacy Policy Generator in 2 Minutes",

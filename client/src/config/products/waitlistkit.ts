@@ -7,7 +7,7 @@ export const waitlistkit: ProductConfig = {
   brandName: "WaitlistKit",
   domain: "waitlistkit.online",
   contactEmail: "hello@waitlistkit.online",
-  tallyUrl: "https://tally.so/r/waitlistkit",
+  tallyUrl: "https://tally.so/r/442LKA",
   logoIcon: Users,
 
   metaTitle: "WaitlistKit - Viral Waitlist Builder with Referrals",

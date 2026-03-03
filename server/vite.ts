@@ -20,6 +20,7 @@ function injectProductMeta(html: string, hostname: string): string {
     .replaceAll("__GA_ID__", meta.gaId)
     .replaceAll("__GTAG_ID__", meta.gtagId)
     .replaceAll("__GTAG_CONVERSION__", meta.gtagConversion)
+    .replaceAll("__GOOGLE_SITE_VERIFICATION__", meta.googleSiteVerification)
     .replaceAll("__BRAND_NAME__", meta.brandName)
     .replaceAll("__CONTACT_EMAIL__", meta.contactEmail)
     .replaceAll("__NOSCRIPT_HEADLINE__", meta.noscriptHeadline)

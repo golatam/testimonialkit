@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Zap, Shield } from "lucide-react";
 import { useProduct } from "@/config/ProductContext";
-import { reportConversion } from "@/lib/gtag";
 
 export function HeroSection() {
   const p = useProduct();
@@ -35,7 +34,6 @@ export function HeroSection() {
           </Button>
           <Button
             asChild
-            onClick={reportConversion}
             data-testid="button-hero-cta-nav"
           >
             <a href={p.tallyUrl} target="_blank" rel="noopener noreferrer">
@@ -77,7 +75,6 @@ export function HeroSection() {
             <Button
               size="lg"
               asChild
-              onClick={reportConversion}
               data-testid="button-hero-cta"
             >
               <a href={p.tallyUrl} target="_blank" rel="noopener noreferrer">

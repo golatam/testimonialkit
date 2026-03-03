@@ -10,6 +10,7 @@ import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
 import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
+import ThankYou from "@/pages/thank-you";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/" component={Landing} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
+      <Route path="/thank-you" component={ThankYou} />
       <Route component={NotFound} />
     </Switch>
   );

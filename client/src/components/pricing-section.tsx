@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Info } from "lucide-react";
 import { useProduct } from "@/config/ProductContext";
-import { reportConversion } from "@/lib/gtag";
 
 export function PricingSection() {
   const p = useProduct();
@@ -79,7 +78,6 @@ export function PricingSection() {
                   ? {}
                   : {
                       asChild: true,
-                      onClick: reportConversion,
                     })}
                 data-testid={`button-pricing-${plan.plan}`}
               >

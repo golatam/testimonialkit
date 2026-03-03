@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useProduct } from "@/config/ProductContext";
-import { reportConversion } from "@/lib/gtag";
 
 export function CtaSection() {
   const p = useProduct();
@@ -45,7 +44,6 @@ export function CtaSection() {
               <Button
                 size="lg"
                 asChild
-                onClick={reportConversion}
                 data-testid="button-cta-signup"
               >
                 <a href={p.tallyUrl} target="_blank" rel="noopener noreferrer">

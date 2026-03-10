@@ -24,6 +24,92 @@ export interface ComparisonNote {
   highlight: string;
 }
 
+// --- Optional section types ---
+
+export interface BeforeAfterItem {
+  niche: string;
+  nicheIcon: LucideIcon;
+  review: string;
+  reviewRating: number;
+  reply: string;
+}
+
+export interface BeforeAfterSection {
+  title: string;
+  subtitle: string;
+  items: BeforeAfterItem[];
+}
+
+export interface HowItWorksStep {
+  icon: LucideIcon;
+  step: string;
+  title: string;
+  description: string;
+}
+
+export interface HowItWorksSection {
+  title: string;
+  subtitle: string;
+  steps: HowItWorksStep[];
+}
+
+export interface SocialProofMetric {
+  value: string;
+  label: string;
+}
+
+export interface CaseStudy {
+  company: string;
+  metric: string;
+  description: string;
+}
+
+export interface SocialProofSection {
+  title?: string;
+  metrics: SocialProofMetric[];
+  platforms?: string[];
+  caseStudy?: CaseStudy;
+}
+
+export interface TemplateItem {
+  name: string;
+  description: string;
+  color: string;
+}
+
+export interface TemplatesSection {
+  title: string;
+  subtitle: string;
+  items: TemplateItem[];
+}
+
+export interface ComparisonFeature {
+  feature: string;
+  us: string | boolean;
+  values: Record<string, string | boolean>;
+}
+
+export interface ComparisonTableSection {
+  title: string;
+  subtitle: string;
+  usLabel: string;
+  competitors: string[];
+  features: ComparisonFeature[];
+}
+
+export interface AgencyFeature {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+export interface ForAgenciesSection {
+  title: string;
+  subtitle: string;
+  features: AgencyFeature[];
+  cta: string;
+}
+
 export interface ProductConfig {
   // Brand
   slug: string;
@@ -81,4 +167,12 @@ export interface ProductConfig {
 
   // Service description for terms/privacy
   serviceDescription: string;
+
+  // Optional sections (product-specific)
+  beforeAfter?: BeforeAfterSection;
+  howItWorks?: HowItWorksSection;
+  socialProof?: SocialProofSection;
+  templates?: TemplatesSection;
+  comparisonTable?: ComparisonTableSection;
+  forAgencies?: ForAgenciesSection;
 }
